@@ -1,8 +1,8 @@
 # Predict salary for new job postings
 
-----
 
-## Introduction
+
+### Introduction
 
 This project's goal is to train and deploy a machine-learning model to predict salaries of new job postings.  What is the average salary for an employee from the oil industry, in an entry-level position and having majored in Engineering?  Or what is the salary range for downtown-based web companies?  And is work-experience a significant factor in determining salaries accross all industries?  Using exploratory data analysis on the given training dataset, we will be able to provide valuable insights to those kind of questions.  That process will enable us to determine the key features driving salaries, build our machine learning model and deploy it to make predictions on the job postings from the test dataset.
 
@@ -17,6 +17,7 @@ We have three csv files in the 'Data' folder of this repository:
 
 ### Other repository contents
 
+
 'images' folder : contains png files of the various plots used in the Jupyter notebooks.
 
 Jupyter notebooks:
@@ -28,6 +29,8 @@ Jupyter notebooks:
 
 
 ### Data preparation and cleansing
+
+----
 
 1. Data Loading into pandas dataframes
 
@@ -63,23 +66,68 @@ First five rows of training dataframe:
 | 828156 | COMP40      | VICE_PRESIDENT | MASTERS     | ENGINEERING | WEB        |                 3 |                    29 |        0 |
 
 
-----
+
 
 ### Exploratory Data Analysis
+
+----
 
 For the amount of data points (1000000), it is expected for the target variable 'salary' to have a normal distribution.  This is the case as we can see from this plot:
 
 ![salary_distribution](/images/target_variable.png)*Salary distribution*
 
+
 The features were splitted into separate lists based on their data types i.e categorical or numerical
 
-**Numerical variables**: yearsExperience, milesFromMetropolis, salary
+Numerical list : yearsExperience, milesFromMetropolis, salary
 
-**Categorical variables**: companyId, jobType, degree, major, industry
+Categorical list : companyId, jobType, degree, major, industry
 
-We proceed on using those lists to analyse the relationship of each feature with the target variable
+Those lists are used to plot the relationship of each feature with the target variable for our _univariate analysis.
+
+**The follwing 1 x 2 plots are to be interpresed as the left, being the distribution of samples on the feature and the right, the dependance of the target variable on the feature.
+
+![years_Experience](/images/yearsExperience.png)*Years Experience
+
+* There is a clear positive correlation with Salary, i.e the more years in experience, the higher the salary
 
 
+![miles](/images/milesFromMetropolis.png)*Miles from metropolis
+
+* We observe a negative correlation with Salaries. Typically the further away you are from city centre, the lower the salary.
+
+
+![companyId](/images/companyId.png)*Company ID
+
+* CompanyID shows no correlation with salaries as it has a flat curve meaning most companies offer the same average salaries.
+
+
+![jobType](/images/jobType.png)*Job Type
+
+* jobType shows a positive correlation with Salary. The higher the position, the higher the salary.
+
+
+![Degrees](/images/degree.png)*Degrees
+
+* Degrees and salaries are also positively correlated.  The more advanced the degree, the higher the salary.
+
+
+![Majors](/images/major.png)*Majors
+
+* Engineering, Business and Math are those commanding the highest salaries.
+
+
+![Industry](/images/industry.png)*Industries
+
+* Oil, Finance and Web are those industries commanding the highest salaries.
+
+
+
+_Multivariate Analysis
+
+We plot a correalation matrix to look at correlations between other variables.
+
+![Correlation_matrix](/images/correlation_matrix.png)*Correlation
 
 
 
