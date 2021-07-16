@@ -128,14 +128,16 @@ Those lists are used to plot the relationship of each feature with the target va
 
 
 
-_Multivariate Analysis_
 
-We plot a correalation matrix to look at correlations between other variables.
+**_Multivariate Analysis_**
+
+
 
 ![Correlation_matrix](/images/correlation_matrix.png)*Correlation matrix*
 
 
-*  We can see that jobtypes, degree, major and yearsExperience have the highest correlation with Salary, in that order. Degree and major are strongly correlated. And we see the negative correlation of milesfromMetropolis with salary, as well as the near-zero correlation of Company ID with salary.  The colinearalities observed are not significant enough to require feature engineering processes such as dimensionality reduction or feature combination.  
+*  From the correlation heatmap , we can see that jobtypes, degree, major and yearsExperience have the highest correlation with Salary, in that order. Degree and major are strongly correlated. And we see the negative correlation of milesfromMetropolis with salary, as well as the near-zero correlation of Company ID with salary.  
+* The colinearalities observed are not significant enough to require feature engineering processes such as dimensionality reduction or feature combination.  
 
 
 ### Baseline 
