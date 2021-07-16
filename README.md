@@ -83,51 +83,61 @@ Numerical list : yearsExperience, milesFromMetropolis, salary
 
 Categorical list : companyId, jobType, degree, major, industry
 
-Those lists are used to plot the relationship of each feature with the target variable for our _univariate analysis.
+Those lists are used to plot the relationship of each feature with the target variable for our _univariate analysis_.
 
-**The follwing 1 x 2 plots are to be interpresed as the left, being the distribution of samples on the feature and the right, the dependance of the target variable on the feature.
+**The follwing 1 x 2 plots are to be interpresed as the left, being the distribution of samples on the feature and the right, the dependance of the target variable on the feature.**
 
-![years_Experience](/images/yearsExperience.png)*Years Experience
+![years_Experience](/images/yearsExperience.png)*Years Experience*
 
 * There is a clear positive correlation with Salary, i.e the more years in experience, the higher the salary
 
 
-![miles](/images/milesFromMetropolis.png)*Miles from metropolis
+
+![miles](/images/milesFromMetropolis.png)*Miles from metropolis*
 
 * We observe a negative correlation with Salaries. Typically the further away you are from city centre, the lower the salary.
 
 
-![companyId](/images/companyId.png)*Company ID
+
+![companyId](/images/companyId.png)*Company ID*
 
 * CompanyID shows no correlation with salaries as it has a flat curve meaning most companies offer the same average salaries.
 
 
-![jobType](/images/jobType.png)*Job Type
+
+![jobType](/images/jobType.png)*Job Type*
 
 * jobType shows a positive correlation with Salary. The higher the position, the higher the salary.
 
 
-![Degrees](/images/degree.png)*Degrees
+![Degrees](/images/degree.png)*Degrees*
 
 * Degrees and salaries are also positively correlated.  The more advanced the degree, the higher the salary.
 
 
-![Majors](/images/major.png)*Majors
+
+![Majors](/images/major.png)*Majors*
 
 * Engineering, Business and Math are those commanding the highest salaries.
 
 
-![Industry](/images/industry.png)*Industries
+
+![Industry](/images/industry.png)*Industries*
 
 * Oil, Finance and Web are those industries commanding the highest salaries.
 
 
 
-_Multivariate Analysis
+_Multivariate Analysis_
 
 We plot a correalation matrix to look at correlations between other variables.
 
-![Correlation_matrix](/images/correlation_matrix.png)*Correlation
+![Correlation_matrix](/images/correlation_matrix.png)*Correlation matrix*
 
+
+*  We can see that jobtypes, degree, major and yearsExperience have the highest correlation with Salary, in that order. Degree and major are strongly correlated. And we see the negative correlation of milesfromMetropolis with salary, as well as the near-zero correlation of Company ID with salary.  The colinearalities observed are not significant enough to require feature engineering processes such as dimensionality reduction or feature combination.  
+
+
+### Baseline 
 
 
