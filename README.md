@@ -22,8 +22,9 @@ We have three csv files in the 'Data' folder of this repository:
 
 Jupyter notebooks:
 
-- SalaryPredictions_EDA : contains the code for data cleaning, EDA and baseline creation.
-- SalaryPredictions_Models : contains the code for model evaluation, training and deployment
+- [SalaryPredictions_EDA](/Mikaspike/SalaryPredictions/blob/main/SalaryPredictions_EDA.ipynb){:target="_blank"} : contains the code for data cleansing, EDA and baseline creation.
+
+- [SalaryPredictions_Models](https://github.com/Mikaspike/SalaryPredictions/blob/main/SalaryPredictions_Models.ipynb){:target="_blank"} : contains the code for model evaluation, training and deployment
 
 'predictions.csv' : the salaries predicted by the model from the test dataset
 
@@ -128,9 +129,7 @@ Those lists are used to plot the relationship of each feature with the target va
 
 
 
-
-**_Multivariate Analysis_**
-
+#### Multivariate Analysis
 
 
 ![Correlation_matrix](/images/correlation_matrix.png)*Correlation matrix*
@@ -142,4 +141,30 @@ Those lists are used to plot the relationship of each feature with the target va
 
 ### Baseline 
 
+For our model performance baseline, a linear regression model using negative MeanSquaredError(MSE) scoring, has been selected.  The average MSE score using a five-fold cross-validation on the training dataset is 399.28.  
 
+Our goal is to train and deploy a model boasting an MSE score of less than 360.
+
+---
+
+### Hypothesizing solutions
+
+Now that we have established our baseline outcome, we proceed with looking at how the results can be improved.
+
+From the EDA, we have seen that the categorical variables are the ones with the most significant correlation with 'salary'. Applying feature engineering on those variables such as label or one-hot encoding would definitely improve the predictive performance of the subsequent selected models.
+
+We can also normalize the numerical variables by applying the appropriate scaling - this is generally good for linear models.
+
+We will evaluate using MSE scoring, 2 linear and 2 non-linear models:
+
+**Linear models -
+
+* Linear Regression
+* Ridge Regression
+
+**Non-linear models -
+
+* Random Forest
+* Gradient Boosting
+
+This will enable us to know what type of algorythm works better on our training dataset. The best performing one, will be the selected model for training and deployment.
