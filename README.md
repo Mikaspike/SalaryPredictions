@@ -86,7 +86,7 @@ Categorical list : companyId, jobType, degree, major, industry
 
 Those lists are used to plot the relationship of each feature with the target variable for our _univariate analysis_.
 
-**The follwing 1 x 2 plots are to be interpresed as the left, being the distribution of samples on the feature and the right, the dependance of the target variable on the feature.**
+**The follwing 1 x 2 plots are to be interpreted as the left, being the distribution of samples on the feature and the right, the dependance of the target variable on the feature.**
 
 ![years_Experience](/images/yearsExperience.png)*Years Experience*
 
@@ -189,7 +189,7 @@ As mentioned, a normalizing process has been applied on the numerical variables 
 |  4 |  587715 | COMP51      | CFO       | BACHELORS   | BIOLOGY | WEB        |          0.375    |              0.565657 |       91 |
 
 
-Next the categorical variables have been one-hot encoded:
+Next is a snapshot of the training set after undergoing one-hot encoding:
 
 
 
@@ -200,5 +200,27 @@ Next the categorical variables have been one-hot encoded:
 |  2 |                 0 |                 0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                 0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                 0 |                  0 |                  0 |                  1 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                 0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                 0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                 0 |                  0 |                  0 |                  0 |                 0 |                 0 |                 0 |             0 |             0 |             1 |                 0 |                0 |                 0 |                0 |                        0 |                  0 |                 0 |                    1 |                0 |             0 |               0 |                0 |                 0 |               0 |                   0 |                  0 |            0 |            1 |               0 |               0 |                    0 |                  0 |                 1 |              0 |                  0 |              0 |          1        |              0.474747 |
 |  3 |                 0 |                 0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                 0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                 0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                 0 |                  1 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                 0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                 0 |                  0 |                  0 |                  0 |                 0 |                 0 |                 0 |             0 |             0 |             0 |                 0 |                0 |                 0 |                1 |                        0 |                  0 |                 1 |                    0 |                0 |             0 |               1 |                0 |                 0 |               0 |                   0 |                  0 |            0 |            0 |               0 |               1 |                    0 |                  0 |                 0 |              0 |                  0 |              0 |          1        |              0.707071 |
 |  4 |                 0 |                 0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                 0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                 0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                 0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                 0 |                  0 |                  1 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                 0 |                  0 |                  0 |                  0 |                 0 |                 0 |                 0 |             0 |             1 |             0 |                 0 |                0 |                 0 |                0 |                        0 |                  1 |                 0 |                    0 |                0 |             0 |               1 |                0 |                 0 |               0 |                   0 |                  0 |            0 |            0 |               0 |               0 |                    0 |                  0 |                 0 |              0 |                  0 |              1 |          0.375    |              0.565657 |
+
+
+### Modelling process
+
+---
+
+
+The training dataset is now ready to be used for evaluating the selected models.  As with our baseline metric, a 5-fold cross-validation with negative MSE scoring has been performed on each of the models.  The comparative results are summarized in the table below:
+
+
+| Model                       |  mean mse  |    std    |
+|:----------------------------|-----------:|----------:|
+| LinearRegression            |    384.492 |  0.722863 |
+| Ridge                       |    384.491 |  0.722655 |
+| RandomForestRegressor       |    365.88  |  0.582813 |
+| GradientBoostingRegressor   |    356.913 |  0.58563  |
+
+
+Clearly the non-linear models have performed better with GradientBoosting scoring the lowest neg-MSE.
+
+
+![MSE-Compa](/images/models_mse_compa.png)*Neg-MSE comparison*
 
 
