@@ -224,7 +224,7 @@ Clearly the non-linear models have performed better with GradientBoosting scorin
 ![MSE-Compa](/images/models_mse_compa.png)*Neg-MSE comparison*
 
 
-Furthermore the GradientBoosting model is the only one to have enabled us to reach our goal of achieving an MSE score < 360 so its selection as our final model is made obvious.  After being fitted on the training dataset, the trained model is firstly saved using **Pickle**, then used to make predictions.    
+Furthermore the GradientBoosting model is the only one to have enabled us to reach our goal of achieving an MSE score < 360 so its selection as our final model is made obvious.  After being fitted on the training dataset, the trained model is firstly saved using **Pickle**, then used to make predictions on the same training set to allow us to get visual insight on the degree of fitness.      
 
 ```python
 
@@ -236,7 +236,7 @@ dump(model, open(filename, 'wb'))
 
 ```
 
-A plot to visualise actual salaries versus predicted. 
+A plot to visualise actual salaries versus predicted on the training dataset.
 
 ![GradientB](/images/GradientB_Training_ActualsVsFitted.png)*ActualsVsFitted*
 
