@@ -202,7 +202,7 @@ Next is a snapshot of the training set after undergoing one-hot encoding:
 |  4 |                 0 |                 0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                 0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                 0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                 0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                 0 |                  0 |                  1 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                 0 |                  0 |                  0 |                  0 |                 0 |                 0 |                 0 |             0 |             1 |             0 |                 0 |                0 |                 0 |                0 |                        0 |                  1 |                 0 |                    0 |                0 |             0 |               1 |                0 |                 0 |               0 |                   0 |                  0 |            0 |            0 |               0 |               0 |                    0 |                  0 |                 0 |              0 |                  0 |              1 |          0.375    |              0.565657 |
 
 
-### Modelling process
+### Model selection and training
 
 ---
 
@@ -222,5 +222,45 @@ Clearly the non-linear models have performed better with GradientBoosting scorin
 
 
 ![MSE-Compa](/images/models_mse_compa.png)*Neg-MSE comparison*
+
+
+Furthermore the GradientBoosting model is the only one to have enabled us to reach our goal of achieving an MSE score < 360 so its selection as our final model is made obvious.  After being fitted on the training dataset, the trained model is firstly saved using **Pickle**, then used to make predictions.    
+
+'''python
+
+from pickle import dump
+from pickle import load
+
+filename = 'finalize_model.sav'
+dump(model, open(filename, 'wb'))
+
+'''
+
+A plot to visualise actual salaries versus predicted. 
+
+![GradientB](/images/GradientB_Training_ActualsVsFitted.png)*ActualsVsFitted*
+
+
+A useful feature of tree-based models like GradientBoosting is Feature_importances.  It allows us to see which features have been considered most important for the model to calculate its predictions.  Here is a bar-chart summarising the top 10 features of our model:
+
+![FeatureImportances](/images/feature_importances.png)*Feature Importances*
+
+
+### Deployment
+
+---
+
+Finally we can deploy our model by making salary predictions on unused data, i.e the test dataset.  The predictions made have been saved in the file 'predictions.csv' which can be found in the repository.  For future job description data, we can load our saved model using Pickle once more, and used it to predict salaries.
+
+'''python
+
+#predictions made from loaded model, saved initially with Pickle
+loaded_model = load(open(filename, 'rb'))
+result = loaded_model.predict(df_test_final)
+
+'''
+
+
+
 
 
