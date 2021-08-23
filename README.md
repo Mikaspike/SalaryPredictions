@@ -26,6 +26,8 @@ Jupyter notebooks:
 
 - [SalaryPredictions_Models](https://github.com/Mikaspike/SalaryPredictions/blob/main/SalaryPredictions_Models.ipynb): contains the code for model evaluation, training and deployment
 
+'requirements' folder: contains requirements.txt file for list of libraries/packages used in the code.  And the .py versions(python scripts) of the jupyter notebooks
+
 'predictions.csv' : the salaries predicted by the model from the test dataset
 
 
@@ -226,15 +228,6 @@ Clearly the non-linear models have performed better with GradientBoosting scorin
 
 Furthermore the GradientBoosting model is the only one to have enabled us to reach our goal of achieving an MSE score < 360 so its selection as our final model is made obvious.  After being fitted on the training dataset, the trained model is firstly saved using **Pickle**, then used to make predictions on the same training set to allow us to get visual insight on the degree of fitness.      
 
-```python
-
-from pickle import dump
-from pickle import load
-
-filename = 'finalize_model.sav'
-dump(model, open(filename, 'wb'))
-
-```
 
 A plot to visualise actual salaries versus predicted on the training dataset.
 
@@ -252,14 +245,13 @@ A useful feature of tree-based models like GradientBoosting is Feature_importanc
 
 Finally we can deploy our model by making salary predictions on unused data, i.e the test dataset.  The predictions made have been saved in the file 'predictions.csv' which can be found in the repository.  For future job description data, we can load our saved model using Pickle once more, and used it to predict salaries.
 
-```python
 
-#predictions made from loaded model, saved initially with Pickle
+### Closing remarks
 
-loaded_model = load(open(filename, 'rb'))
-result = loaded_model.predict(df_test_final)
+---
 
-```
+
+Being able to predict salaries can be particularly useful for recruiters when posting new jobs, not just for the sake of aligning with industry benchmarks but also for enabling important processes such as budgetary forecast.  We have seen that using a prediction model like Gradient Boosting Regressor performs well enough to provide more than satisfactory estimates of salaries.  Can the model's performance be improved? Most probably by digging deeper into the training data and doing more extensive feature engineering.  And there might also be a better performing model out there, however for this faily simple regression case, we have chosen to restrict ourselves to evaluating those four well-known models.
 
 
 
